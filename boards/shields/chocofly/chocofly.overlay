@@ -1,0 +1,66 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 16 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH>
+            ;
+        row-gpios
+            = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <8>;
+        rows = <8>;
+// | SW1  | SW7  | SW2  | SW8  | SW3  | SW9  |                           | SW11 | SW4  | SW12 | SW5  | SW13 | SW6  |
+// | SW14 | SW22 | SW15 | SW23 | SW16 | SW24 |                           | SW27 | SW19 | SW28 | SW20 | SW29 | SW21 |
+// | SW30 | SW38 | SW31 | SW39 | SW32 | SW40 | SW10 |                    | SW43 | SW35 | SW44 | SW36 | SW45 | SW37 |
+// | SW46 | SW54 | SW47 | SW55 | SW48 | SW56 | SW25 | SW17 | SW18 | SW26 | SW59 | SW51 | SW60 | SW52 | SW61 | SW53 |
+//                             | SW57 | SW49 | SW41 | SW33 | SW34 | SW42 | SW50 | SW58 |
+
+        map = <
+RC(0,0) RC(1,0) RC(0,1) RC(1,1) RC(0,2) RC(1,2)                                 RC(1,5) RC(0,5) RC(1,6) RC(0,6) RC(1,7) RC(0,7)
+RC(2,0) RC(3,0) RC(2,1) RC(3,1) RC(2,2) RC(3,2)                                 RC(3,5) RC(2,5) RC(3,6) RC(2,6) RC(3,7) RC(2,7)
+RC(4,0) RC(5,0) RC(4,1) RC(5,1) RC(4,2) RC(5,2) RC(1,3)                         RC(5,5) RC(4,5) RC(5,6) RC(4,6) RC(5,7) RC(4,7)
+RC(6,0) RC(7,0) RC(6,1) RC(7,1) RC(6,2) RC(7,2) RC(3,3) RC(2,3) RC(2,4) RC(3,4) RC(7,5) RC(6,5) RC(7,6) RC(6,6) RC(7,7) RC(6,7)
+                                RC(7,3) RC(6,3) RC(5,3) RC(4,3) RC(4,4) RC(5,4) RC(6,4) RC(7,4)
+        >;
+    };
+
+    left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        label = "LEFT_ENCODER";
+        a-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        resolution = <4>;
+        status = "okay";
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder>;
+    };
+};
