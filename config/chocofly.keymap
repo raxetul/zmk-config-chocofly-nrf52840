@@ -65,14 +65,14 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------                                                   -------------------------------------------------------------------------------
-// |     -    |                   |            |            |            |            |                                                   |            |            |            |            |            |     -      |
+// |     -    |   SHIFT+CMD+F     |            |            |            |            |                                                   |            |            |            |            |            |     -      |
 // |     -    |   SHIFT+CMD+P     |            |     `      |     !      |     [      |-------------            |            -------------|     ]      |     @      |     ^      |            |            |     -      |
 // |          |   SHIFT+CMD+A     |     +      |     ~      |     %      |     (      |            |-------------------------|            |     )      |     $      |     #      |            |            |     `      |
 // |     -    |   SHIFT+CMD+Z     |     -      |     \      |     &      |     {      |     -      |            |            |     +      |     }      |     *      |     =      |            |            |     -      |
 // ---------------------------------------------------------|     -      |     -      |     -      |     -      |     -      |     -      |     -      |     -      |----------------------------------------------------
 //                                                          ---------------------------------------------------------------------------------------------------------
             bindings = <
-       &trans      &none             &none        &none        &none        &none                                                            &none        &none        &none         &none        &none         &trans
+       &trans   &kp LG(LS(F))        &none        &none        &none        &none                                                            &none        &none        &none         &none        &none         &trans
        &trans   &kp LG(LS(P))        &none        &kp GRAVE    &kp EXCL     &kp LBKT                                                         &kp RBKT     &kp AT       &kp CARET     &none        &none         &trans
        &none    &kp LG(LS(A))        &kp PLUS     &kp TILDE    &kp PRCNT    &kp LPAR     &none                                   &none       &kp RPAR     &kp DLLR     &kp HASH      &none        &none         &kp GRAVE
        &trans   &kp LG(LS(Z))        &kp MINUS    &kp BSLH     &kp AMPS     &kp LBRC     &kp MINUS     &none       &none         &kp PLUS    &kp RBRC     &kp ASTRK    &kp EQUAL     &none        &none         &trans
