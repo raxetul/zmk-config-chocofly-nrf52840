@@ -64,19 +64,19 @@
         };|
 
         raise_layer {
-// ------------------------------------------------------------------------------------                                                   -------------------------------------------------------------------------------
-// |     -    |   SHIFT+CMD+F     |            |            |     '      |     <      |                                                   |     >      |     "      |            |            |            |     -      |
-// |     -    |   SHIFT+CMD+P     |            |     `      |     !      |     [      |-------------            |            -------------|     ]      |     @      |            |            |            |     -      |
-// |          |   SHIFT+CMD+A     |     +      |     ~      |     %      |     (      |            |-------------------------|            |     )      |     $      |     #      |            |     :      |     `      |
-// |     -    |   SHIFT+CMD+Z     |     -      |     \      |     &      |     {      |     _      |            |            |     +      |     }      |     *      |     ^      |            |            |     -      |
-// ---------------------------------------------------------|     -      |     -      |     -      |     -      |     -      |     -      |     -      |     -      |----------------------------------------------------
+// ------------------------------------------------------------------------------------                                                     -------------------------------------------------------------------------------
+// |     -    |   SHIFT+CMD+F     |            |            |     '      |     <      |                                                     |     >      |     "      |            |            |            |     -      |
+// |     -    |   SHIFT+CMD+P     |            |     `      |     !      |     [      |-------------            |              -------------|     ]      |     @      |            |            |            |     -      |
+// |          |   SHIFT+CMD+A     |     +      |     ~      |     %      |     (      |            |---------------------------|            |     )      |     $      |     #      |            |     :      |     `      |
+// |     -    |   SHIFT+CMD+Z     |     -      |     \      |     &      |     {      |     _      |            |              |     +      |     }      |     *      |     ^      |            |            |     -      |
+// ---------------------------------------------------------|     -      |     -      |     -      |     -      |      -       |     -      |     -      |     -      |----------------------------------------------------
 //                                                          ---------------------------------------------------------------------------------------------------------
             bindings = <
-       &trans   &kp LG(LS(F))        &none        &none        &kp SQT      &kp LT                                                           &kp GT       &kp DQT      &none         &none        &none         &trans
-       &trans   &kp LG(LS(P))        &none        &kp GRAVE    &kp EXCL     &kp LBKT                                                         &kp RBKT     &kp AT       &none         &none        &none         &trans
-       &none    &kp LG(LS(A))        &kp PLUS     &kp TILDE    &kp PRCNT    &kp LPAR     &none                                   &none       &kp RPAR     &kp DLLR     &kp HASH      &none       &kp COLON      &kp GRAVE
-       &trans   &kp LG(LS(Z))        &kp MINUS    &kp BSLH     &kp AMPS     &kp LBRC     &kp UNDER     &none       &none         &kp PLUS    &kp RBRC     &kp ASTRK    &kp CARET     &none        &none         &trans
-                                                               &trans       &trans       &trans        &trans      &trans        &trans      &trans       &trans
+       &trans   &kp LG(LS(F))        &none        &none        &kp SQT      &kp LT                                                             &kp GT       &kp DQT      &none         &none        &none        &trans
+       &trans   &kp LG(LS(P))        &none        &kp GRAVE    &kp EXCL     &kp LBKT                                                           &kp RBKT     &kp AT       &none         &none        &none        &trans
+       &none    &kp LG(LS(A))        &kp PLUS     &kp TILDE    &kp PRCNT    &kp LPAR     &none                                     &none       &kp RPAR     &kp DLLR     &kp HASH      &none       &kp COLON    &kp GRAVE
+       &trans   &kp LG(LS(Z))        &kp MINUS    &kp BSLH     &kp AMPS     &kp LBRC     &kp UNDER     &none      &kp LG(SPACE)    &kp PLUS    &kp RBRC     &kp ASTRK    &kp CARET     &none        &none        &trans
+                                                               &trans       &trans       &trans        &trans        &trans        &trans      &trans       &trans
             >;
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
