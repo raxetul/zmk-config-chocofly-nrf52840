@@ -1,6 +1,6 @@
 / {
     behaviors {
-        mo_gui_to_ctrl: mo_gui_to_ctrl {
+        mo_lgui_to_lctrl: mo_lgui_to_lctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <1>;
             bindings = <&mo>, <&kp LCTRL>;
