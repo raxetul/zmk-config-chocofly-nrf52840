@@ -1,0 +1,18 @@
+/ {
+    behaviors {
+        mo_gui_to_ctrl: mo_gui_to_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <1>;
+            bindings = <&mo>, <&kp LCTRL>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <0>; // Prevents LGUI from being sent when morphed
+        };
+        mo_gui_to_rgui: mo_gui_to_rgui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <1>;
+            bindings = <&mo>, <&kp RGUI>;
+            mods = <(MOD_RALT)>;
+            keep-mods = <0>; // Prevents LGUI from being sent when morphed
+        };
+    };
+};
