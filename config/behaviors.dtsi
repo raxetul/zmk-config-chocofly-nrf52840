@@ -7,12 +7,12 @@
             mods = <(MOD_LGUI)>;
             keep-mods = <0>; // Prevents LGUI from being sent when morphed
         };
-        mo_gui_to_rgui: mo_gui_to_rgui {
+        mo_ralt_to_rgui: mo_ralt_to_rgui {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <1>;
             bindings = <&mo>, <&kp RGUI>;
             mods = <(MOD_RALT)>;
-            keep-mods = <0>; // Prevents LGUI from being sent when morphed
+            keep-mods = <0>; // Prevents RALT from being sent when morphed
         };
     };
 };
