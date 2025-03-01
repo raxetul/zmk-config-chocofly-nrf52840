@@ -28,51 +28,48 @@
 
 //#####################################################################################################################################################################################################################################
 
-/ {
-    behaviors {
-        mo_lgui_to_lctrl: mo_lgui_to_lctrl {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mo 2>, <&kp LCTRL>;
-            mods = <(MOD_LGUI)>;
-            keep-mods = <0>; // Prevents LGUI from being sent when morphed
-        };
-        mo_ralt_to_rgui: mo_ralt_to_rgui {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mo 1>, <&kp RGUI>;
-            mods = <(MOD_RALT)>;
-            keep-mods = <0>; // Prevents RALT from being sent when morphed
-        };
-    };
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    macros {
+        // Macro to send LCTRL when LGUI+MO is pressed
+        gui_mo_to_ctrl: gui_mo_to_ctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>;
+        };
+    };
+
+    behaviors {
+        // Custom behavior for conditional MO layer key
+        smart_ctrl_mo: smart_momentary_layer {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <1>;
+            bindings = <&mo>, <&gui_mo_to_ctrl>;
+            mods = <(MOD_LGUI)>;  // When LGUI is pressed
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
-
         default_layer {
 // -------------------------------------------------------------------------------                                                                -------------------------------------------------------------------------------
 // |   ESC      |     1      |     2      |     3      |     4      |     5      |                                                                |     6      |     7      |     8      |     9      |     0      |  BACKSPACE |
 // |   TAB      |     Q      |     W      |     E      |     R      |     T      |--------------------            |            -------------------|     Y      |     U      |     I      |     O      |     P      |     DEL    |
 // |   CAPS     |     A      |     S      |     D      |     F      |     G      |      VOL_M        |-------------------------|                  |     H      |     J      |     K      |     L      |     ;      |     '      |
 // |   SHIFT    |     Z      |     X      |     C      |     V      |     B      |        -          |     -      |     |      |     =            |     N      |     M      |     ,      |     .      |     /      |  R SHIFT   |
-// ----------------------------------------------------|    ALT     |    GUI     |       MO 2        |   SPACE    |   ENTER    |    MO 1          |    ALT     |   MO 3     |----------------------------------------------------
+// ----------------------------------------------------|    ALT     |    GUI     |     LAYER2        |   SPACE    |   ENTER    |    LAYER1        |    ALT     |   MO 3     |----------------------------------------------------
 //                                                     ----------------------------------------------------------------------------------------------------------------------
            bindings = <
     &kp ESC         &kp N1      &kp N2        &kp N3       &kp N4       &kp N5                                                                       &kp N6       &kp N7       &kp N8       &kp N9      &kp N0        &kp BSPC
     &kp TAB         &kp Q       &kp W         &kp E        &kp R        &kp T                                                                        &kp Y        &kp U        &kp I        &kp O       &kp P         &kp DEL
     &kp CAPS        &kp A       &kp S         &kp D        &kp F        &kp G      &kp K_MUTE                                    &none               &kp H        &kp J        &kp K        &kp L       &kp SEMI      &kp SQT
     &kp LSHFT       &kp Z       &kp X         &kp C        &kp V        &kp B      &kp MINUS           &none        &kp PIPE     &kp EQUAL           &kp N        &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT
-                                                           &kp LALT     &kp LGUI   &mo_lgui_to_lctrl   &kp SPACE    &kp ENTER    &mo_ralt_to_rgui    &kp RALT     &mo 3
+                                                           &kp LALT     &kp LGUI   &smart_ctrl_mo 2    &kp SPACE    &kp ENTER    &mo 1               &kp RALT     &mo 3
             >;
             sensor-bindings = <&inc_dec_kp K_VOL_UP K_VOL_DN>;
         };
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         lower_layer {
