@@ -33,14 +33,14 @@
         mo_lgui_to_lctrl: mo_lgui_to_lctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mo>, <&kp LCTRL>;
+            bindings = <&mo 2>, <&kp LCTRL>;
             mods = <(MOD_LGUI)>;
             keep-mods = <0>; // Prevents LGUI from being sent when morphed
         };
         mo_ralt_to_rgui: mo_ralt_to_rgui {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mo>, <&kp RGUI>;
+            bindings = <&mo 1>, <&kp RGUI>;
             mods = <(MOD_RALT)>;
             keep-mods = <0>; // Prevents RALT from being sent when morphed
         };
