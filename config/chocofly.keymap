@@ -47,8 +47,8 @@
         // Custom behavior for conditional MO layer key
         smart_ctrl_mo: smart_momentary_layer {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <1>;
-            bindings = <&mo>, <&gui_mo_to_ctrl>;
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&gui_mo_to_ctrl>;
             mods = <(MOD_LGUI)>;  // When LGUI is pressed
         };
     };
@@ -68,7 +68,7 @@
     &kp TAB         &kp Q       &kp W         &kp E        &kp R        &kp T                                                                        &kp Y        &kp U        &kp I        &kp O       &kp P         &kp DEL
     &kp CAPS        &kp A       &kp S         &kp D        &kp F        &kp G      &kp K_MUTE                                    &none               &kp H        &kp J        &kp K        &kp L       &kp SEMI      &kp SQT
     &kp LSHFT       &kp Z       &kp X         &kp C        &kp V        &kp B      &kp MINUS           &none        &kp PIPE     &kp EQUAL           &kp N        &kp M        &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT
-                                                           &kp LALT     &kp LGUI   &smart_ctrl_mo 2    &kp SPACE    &kp ENTER    &mo 1               &kp RALT     &mo 3
+                                                           &kp LALT     &kp LGUI   &smart_ctrl_mo      &kp SPACE    &kp ENTER    &mo 1               &kp RALT     &mo 3
             >;
             sensor-bindings = <&inc_dec_kp K_VOL_UP K_VOL_DN>;
         };
