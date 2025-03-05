@@ -48,7 +48,7 @@
         smart_ctrl_mo: smart_momentary_layer {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mo 1>, <&gui_mo_to_ctrl>;
+            bindings = <&mo 2>, <&gui_mo_to_ctrl>;
             mods = <(MOD_LGUI)>;  // When LGUI is pressed
         };
     };
