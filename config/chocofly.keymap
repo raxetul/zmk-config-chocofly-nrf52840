@@ -79,14 +79,14 @@
 
         raise_layer {
 // ------------------------------------------------------------------------------------                                                     -------------------------------------------------------------------------------
-// |..........|   SHIFT+CMD+F     |            |     <      |     >      |     '      |                                                     |     "      |     ^      | PREVIOUS   | PLAY/PAUSE |   NEXT     |............|
+// |..........|   SHIFT+CMD+F     |            |     <      |     >      |     '      |                                                     |     "      |     ^      |            |            |            |............|
 // |..........|   SHIFT+CMD+P     |            |     [      |     ]      |     !      |-------------            |              -------------|     `      |     @      |            |            |            |............|
 // |          |   SHIFT+CMD+A     |            |     (      |     )      |     %      |            |---------------------------|            |     &      |     $      |     #      |            |     :      |     `      |
 // |..........|   SHIFT+CMD+Z     |            |     {      |     }      |     ~      |............|     _      |  CMD SPACE   |     +      |     \      |     *      |     +      |     -      |            |............|
 // ---------------------------------------------------------|............|............|............|............| ............ |............|............|............|----------------------------------------------------
 //                                                          ---------------------------------------------------------------------------------------------------------
             bindings = <
-       &trans   &kp LG(LS(F))        &none        &kp LT       &kp GT       &kp SQT                                                            &kp DQT      &kp CARET   &kp K_PREV    &kp K_PP     &kp K_NEXT   &trans
+       &trans   &kp LG(LS(F))        &none        &kp LT       &kp GT       &kp SQT                                                            &kp DQT      &kp CARET   &none         &none        &none        &trans
        &trans   &kp LG(LS(P))        &none        &kp LBKT     &kp RBKT     &kp EXCL                                                           &kp GRAVE    &kp AT      &none         &none        &none        &trans
        &none    &kp LG(LS(A))        &none        &kp LPAR     &kp RPAR     &kp PRCNT    &none                                     &none       &kp AMPS     &kp DLLR    &kp HASH      &none        &kp COLON    &kp GRAVE
        &trans   &kp LG(LS(Z))        &none        &kp LBRC     &kp RBRC     &kp TILDE    &trans       &kp UNDER   &kp LG(SPACE)    &kp PLUS    &kp BSLH     &kp ASTRK   &kp PLUS      &kp MINUS    &none        &trans
@@ -100,18 +100,18 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ble_layer {
-// ---------------------------------------------------------------------------                                       ----------------------------------------------------------------
-// |         |         |            |            |            |              |                                       | BT_CLR     |         |         |         |         |         |
-// |         |         |            |            |            |              |----------         |         ----------|            |         |         |         |         |         |
-// |         |         |            |            |            |              |         |-------------------|         |            |         |         |         |         |         |
-// |.........|         |            |            |            |              |         |         |         |         |            |         |         |         |         |.........|
-// ----------------------------------------------|............|..............|.........|.........|.........|.........|............|.........|----------------------------------------
+// ---------------------------------------------------------------------------                                       ------------------------------------------------------------------------
+// | BT_CLR  |         |            |            |            |              |                                       |            |            |            |           |         |         |
+// |         |         |            |            |            |              |----------         |         ----------|            |            |            |           |         |         |
+// |         |         |            |            |            |              |         |-------------------|         |            | PREVIOUS   | PLAY/PAUSE | NEXT      |         |         |
+// |.........|         |            |            |            |              |         |         |         |         |            |            |            |           |         |.........|
+// ----------------------------------------------|............|..............|.........|.........|.........|.........|............|............|---------------------------------------------
 //                                               --------------------------------------------------------------------------------------------
             bindings = <
-    &none      &none     &none        &none        &none         &none                                                 &bt BT_CLR   &none     &none     &none     &none     &none
-    &none      &none     &none        &none        &none         &none                                                 &none        &none     &none     &none     &none     &none
-    &none      &none     &none        &none        &none         &none         &none                         &none     &none        &none     &none     &none     &none     &none
-    &trans     &none     &none        &none        &none         &none         &none      &none    &none     &none     &none        &none     &none     &none     &none     &trans
+    &bt BT_CLR &none     &none        &none        &none         &none                                                 &none        &none        &none        &none       &none     &none
+    &none      &none     &none        &none        &none         &none                                                 &none        &none        &none        &none       &none     &none
+    &none      &none     &none        &none        &none         &none         &none                         &none     &none        &kp C_PREV   &kp C_PP     &kp C_NEXT  &none     &none
+    &trans     &none     &none        &none        &none         &none         &none      &none    &none     &none     &none        &none        &none        &none       &none     &trans
                                                    &trans        &trans        &trans     &trans   &trans    &trans    &trans       &trans
             >;
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
