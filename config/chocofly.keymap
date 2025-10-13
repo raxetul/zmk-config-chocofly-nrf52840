@@ -83,14 +83,14 @@
 // ------------------------------------------------------------------------------------                                                     -------------------------------------------------------------------------------
 // |..........|   SHIFT+CMD+F     |            |     <      |     >      |     '      |                                                     |     "      |     ^      |            |            |            |............|
 // |..........|   SHIFT+CMD+P     |            |     [      |     ]      |     !      |-------------            |              -------------|     `      |     @      |            |            |            |............|
-// |          |   SHIFT+CMD+A     |            |     (      |     )      |     %      |            |---------------------------|            |     &      |     $      |     #      |            |     :      |     `      |
+// |          |   SHIFT+CMD+A     |            |     (      |     )      |     %      |            |---------------------------|            |     &      |     $      |     #      |     _      |     :      |     `      |
 // |..........|   SHIFT+CMD+Z     |            |     {      |     }      |     ~      |............|     _      |  CMD SPACE   |     +      |     \      |     *      |     +      |     -      |            |............|
 // ---------------------------------------------------------|............|............|............|............| ............ |............|............|............|----------------------------------------------------
 //                                                          ---------------------------------------------------------------------------------------------------------
             bindings = <
        &trans   &kp LG(LS(F))        &none        &kp LT       &kp GT       &kp SQT                                                            &kp DQT      &kp CARET   &none         &none        &none        &trans
        &trans   &kp LG(LS(P))        &none        &kp LBKT     &kp RBKT     &kp EXCL                                                           &kp GRAVE    &kp AT      &none         &none        &none        &trans
-       &none    &kp LG(LS(A))        &none        &kp LPAR     &kp RPAR     &kp PRCNT    &none                                     &none       &kp AMPS     &kp DLLR    &kp HASH      &none        &kp COLON    &kp GRAVE
+       &none    &kp LG(LS(A))        &none        &kp LPAR     &kp RPAR     &kp PRCNT    &none                                     &none       &kp AMPS     &kp DLLR    &kp HASH      &kp UNDER    &kp COLON    &kp GRAVE
        &trans   &kp LG(LS(Z))        &none        &kp LBRC     &kp RBRC     &kp TILDE    &trans       &kp UNDER   &kp LG(SPACE)    &kp PLUS    &kp BSLH     &kp ASTRK   &kp PLUS      &kp MINUS    &none        &trans
                                                                &trans       &trans       &trans       &trans      &trans           &trans      &trans       &trans
             >;
